@@ -119,36 +119,36 @@ export default function ArticleItem({
                   1.2 在 GitHub 创建新仓库
                 </h3>
                 <p className="ml-3">
-                  1. 登录 GitHub，点击右上角“+” {"->"} "New repository"
+                  1. 登录 GitHub, 点击右上角"+" {"->"} "New repository"
                 </p>
                 <p className="ml-3">2. 填写仓库信息：</p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
-                  <span className="font-bold">Repository name：</span>
-                  my-react-blog（给你的项目起个名字）
+                  <span className="font-bold">Repository name: </span>
+                  my-react-blog (给你的项目起个名字)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
-                  <span className="font-bold">Description：</span>
-                  My personal blog built with React（可选）
+                  <span className="font-bold">Description: </span>
+                  My personal blog built with React (可选)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
-                  <span className="font-bold">选择 Public</span>（这样可以使用
-                  Vercel 免费服务）
+                  <span className="font-bold">选择 Public</span>(这样可以使用
+                  Vercel 免费服务)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
                   <span className="font-bold">Add a README file </span>
-                  （建议勾选）
+                  (建议勾选)
                 </p>
                 <p className="ml-3">3. 点击 "Create repository"</p>
                 <h3 className="text-16 font-bold tracking-tight text-zinc-700">
@@ -159,7 +159,7 @@ export default function ArticleItem({
                     ·{" "}
                   </span>
                   <span className="text-base font-medium">
-                    打开终端/命令行，进入 React 项目目录：
+                    打开终端/命令行，进入 React 项目目录:
                   </span>
                 </p>
                 <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
@@ -255,29 +255,29 @@ export default function ArticleItem({
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
-                  <span className="font-bold">Project Name：</span>
-                  my-react-blog（自动填充）
+                  <span className="font-bold">Project Name: </span>
+                  my-react-blog (自动填充)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
-                  <span className="font-bold">Framework Preset：</span>
+                  <span className="font-bold">Framework Preset: </span>
                   Vercel 通常会自动检测为 Create React App
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
-                  <span className="font-bold">Build Command：</span>
-                  npm run build（默认）
+                  <span className="font-bold">Build Command: </span>
+                  npm run build (默认)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
                     ·
                   </span>
-                  <span className="font-bold">Output Directory：</span>
-                  build（默认）
+                  <span className="font-bold">Output Directory: </span>
+                  build (默认)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 ml-6 mr-2">
@@ -314,13 +314,13 @@ export default function ArticleItem({
                   第 3 步：获得临时域名测试
                 </h2>
                 <div className="space-y-4">
-                  <p>部署完成后，Vercel 会显示你的项目信息：</p>
+                  <p>部署完成后, Vercel 会显示你的项目信息: </p>
                   <p>
                     <span className=" rounded-full font-extrabold text-zinc-700 mr-2">
                       ·
                     </span>
                     <span className=" font-bold">Domains: </span>
-                    my-react-blog.vercel.app （这就是你的临时域名）
+                    my-react-blog.vercel.app (这就是你的临时域名)
                   </p>
                   <p>
                     <span className=" rounded-full font-extrabold text-zinc-700 mr-2">
@@ -340,23 +340,23 @@ export default function ArticleItem({
                     ·
                   </span>
                   <span className=" font-bold">Namecheap </span>
-                  （国际，价格透明）
+                  (国际，价格透明)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 mr-2">
                     ·
                   </span>
                   <span className=" font-bold">GoDaddy</span>
-                  （国际，最大注册商）
+                  (国际，最大注册商)
                 </p>
                 <p>
                   <span className=" rounded-full font-extrabold text-zinc-700 mr-2">
                     ·
                   </span>
                   <span className=" font-bold">阿里云/腾讯云 </span>
-                  （国内，中文界面）
+                  (国内，中文界面)
                 </p>
-                <p className="font-bold">购买步骤（以腾讯云为例）： </p>
+                <p className="font-bold">购买步骤 (以腾讯云为例): </p>
                 <p className="ml-3">
                   1. 访问{" "}
                   <a

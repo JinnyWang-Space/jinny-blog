@@ -13,13 +13,13 @@ const navItems = [
 function Avatar() {
   return (
     <div>
-      <a href="/">
+      <link href="/">
         <img
           className="w-10 aspect-square rounded-full border-2 border-zinc-300"
           src="../../../avatar.jpg"
           alt="Avatar"
         />
-      </a>
+      </link>
     </div>
   );
 }
