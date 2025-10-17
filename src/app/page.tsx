@@ -1,4 +1,5 @@
 import { articleList } from "@/app/model/articleModel";
+import { contactInfo } from "@/app/model/contactModel";
 // 头像框
 function Avatar() {
   return (
@@ -20,25 +21,29 @@ function Title() {
       <div className="mt-8">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl leading-tight">
-            鸿蒙开发者、观澜问卷创始人和业余前端开发者。
+            {/* 鸿蒙开发者、观澜问卷创始人和业余前端开发者。 */}
+            欢迎来到Jinny的空间
           </h1>
-          <p className="mt-6 text-base text-zinc-600">
-            我是Jinny，一位居住在天津的鸿蒙开发者。我是观澜问卷APP的创始人，开发技术，使普通人能够满足对于问卷使用的需求。
+          <p className="mt-6 font-semibold text-zinc-600">
+            {/* 我是Jinny，一位居住在天津的鸿蒙开发者。我是观澜问卷APP的创始人，开发技术，使普通人能够满足对于问卷使用的需求。 */}
+            使用 Next.js + React + Tailwind CSS + TypeScript 构建的个人空间
           </p>
 
-          <div className="mt-6 flex gap-4">
-            <a href="#">
-              <img src="././weibo.svg" className="w-8 aspect-square"></img>
-            </a>
-            <a href="#">
-              <img src="././bilibili.svg" className="w-8 aspect-square"></img>
-            </a>
-            <a href="#">
-              <img src="././weixin.svg" className="w-8 aspect-square"></img>
-            </a>
-            <a href="#">
-              <img src="././weixin.svg" className="w-8 aspect-square"></img>
-            </a>
+          <div className="mt-6 flex gap-6">
+            {/* 联系方式 */}
+            {contactInfo.map((item) => {
+              return (
+                <a key={item.id} href={item.href} target="_blank">
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="w-6 h-6 fill-zinc-500 transition hover:fill-teal-500"
+                  >
+                    <path d={item.path}></path>
+                  </svg>
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -57,6 +62,7 @@ function MainView() {
             {articleList.map((item) => {
               if (item.id < 4) {
                 return (
+                  // 文章卡片
                   <article
                     key={item.id}
                     className="group relative flex flex-col items-start /*bg-zinc-600"
@@ -96,9 +102,9 @@ function MainView() {
                       >
                         <path
                           d="M6.75 4.75 9.25 8l-2.5 2.25"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                       </svg>
                     </div>
@@ -114,9 +120,9 @@ function MainView() {
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   aria-hidden="true"
                   className="h-6 w-6 flex-none"
                 >

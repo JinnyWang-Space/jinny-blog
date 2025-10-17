@@ -449,9 +449,9 @@ export default function ArticleItem({
             </a>
           </div> */}
               <div className="mt-32 flex w-full justify-center">
-                <span className="text-4xl font-bold">
-                  恭喜你！完成个人网站的搭建
-                </span>
+                <p className="text-4xl font-bold">
+                  🎉 恭喜你！完成个人网站的搭建
+                </p>
               </div>
             </>
           )}
