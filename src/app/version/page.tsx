@@ -76,7 +76,8 @@ export default function VersionView() {
                       💄 优化
                     </h3>
                     <p className="relative z-10 mt-2 text-sm text-zinc-600 leading-8">
-                      · 优化了第三方 app 图标的显示
+                      · 优化了第三方 app / 网址 的显示图标
+                      <br />· 改进了我的页面阅读体验，增加了个人介绍的详细信息
                       <br />· 改进了日志阅读体验，增加行高
                       <br />· 改进了工具阅读体验，增加了工具的详细信息，增加行高
                     </p>
