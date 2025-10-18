@@ -1,6 +1,7 @@
 "use client";
 import { articleList } from "@/app/model/articleModel";
 import { useRouter } from "next/navigation";
+import { use } from "react";
 // 配置 Git 命令
 const configGit = [
   { title: "# 进入你的项目文件", code: "cd path/to/your/react-project" },
@@ -19,11 +20,11 @@ const configGit = [
 export default function ArticleItem({
   params,
 }: {
-  params: { articleItemId: string };
+  params: Promise<{ articleItemId: string }>;
 }) {
   const router = useRouter();
-  // 获取文章 id
-  const articleId = parseInt(params.articleItemId);
+  // 获取文章 id，使用 use 函数等待 Promise 解析
+  const articleId = parseInt(use(params).articleItemId);
   // 获取文章 - 根据 id 查找标题\日期\内容
   const article = articleList.find((item) => item.id === articleId);
   return (
@@ -48,8 +49,8 @@ export default function ArticleItem({
             >
               <path
                 d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
-                stroke-width="1.5"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
               ></path>
             </svg>
           </a>
@@ -459,6 +460,8 @@ export default function ArticleItem({
           {articleId === 2 && <></>}
 
           {articleId === 3 && <></>}
+
+          {articleId === 4 && <></>}
         </article>
       </div>
     </main>
