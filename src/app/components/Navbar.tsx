@@ -31,14 +31,13 @@ export function NavbarTop() {
 
   return (
     <div className="flex w-full max-w-5xl /*bg-amber-200">
-      <div className="w-full h-10 mt-6 mb-16 ">
+      <div className="relative w-full h-10 mt-6 mb-16 ">
         <div className="flex gap-4 ">
           {!isHomePage && (
-            <div className="flex-shrink-0">
-              <Avatar />
-            </div>
+            // <div>
+            <Avatar />
+            // </div>
           )}
-
           <div className="flex flex-1"></div>
           <div className="flex flex-1 justify-end md:justify-center">
             <nav>

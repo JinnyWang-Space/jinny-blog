@@ -17,6 +17,7 @@ const configGit = [
   },
   { title: "# 推送到 GitHub", code: "git push -u origin main" },
 ];
+
 export default function ArticleItem({
   params,
 }: {
@@ -29,15 +30,15 @@ export default function ArticleItem({
   const article = articleList.find((item) => item.id === articleId);
   return (
     <main className="flex w-full justify-center /*bg-amber-100">
-      <div className="w-full max-w-2xl mt-16 ">
+      <div className="w-full max-w-2xl mt-16 /*bg-red-300">
         {/* 返回文章列表按钮 */}
         <button
           type="button"
           aria-label="返回文章列表"
           className="group mb-8 flex h-10 w-10
         items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5
-        ring-zinc-900/5 transition lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 /*xl:top-0
-        xl:left-28 xl:mt-0 "
+        ring-zinc-900/5 transition lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:top-46
+        xl:left-56 xl:mt-0 "
         >
           <a className="relative z-10" href="/articles">
             <svg
@@ -76,9 +77,11 @@ export default function ArticleItem({
           {articleId === 1 && (
             <>
               <div className="mt-10 space-y-4">
+                {/* 第 1 步：把 React 代码推送到 GitHub */}
                 <h2 className="text-xl font-bold tracking-tight text-zinc-800">
                   第 1 步：把 React 代码推送到 GitHub
                 </h2>
+                {/* 1.1 准备工作*/}
                 <h3 className="text-20 font-bold tracking-tight text-zinc-700">
                   1.1 准备工作
                 </h3>
@@ -457,7 +460,339 @@ export default function ArticleItem({
             </>
           )}
 
-          {articleId === 2 && <></>}
+          {articleId === 2 && (
+            <>
+              <div className="mt-10 space-y-4">
+                <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                  第 1 步：环境准备
+                </h2>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  1.1 安装 Git
+                </h3>
+                <p>
+                  <span className="text-base font-medium">Windows 系统：</span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>
+                    访问{" "}
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800"
+                      href="https://git-scm.com/downloads/win"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      Git 官网
+                    </a>
+                    ，下载安装包
+                  </span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>安装时保持默认选项即可</span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>安装完成后，在开始菜单中找到 "Git Bash"</span>
+                </p>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  1.2 注册 Github 账号
+                </h3>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>
+                    访问{" "}
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800"
+                      href="https://git-scm.com/downloads/win"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      GitHub 官网
+                    </a>
+                  </span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>点击 "Sign up" 注册账号</span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>验证邮箱完成注册</span>
+                </p>
+                <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                  第 2 步：本地 Git 配置
+                </h2>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  2.1 配置用户信息
+                </h3>
+                <p className="flex items-center /*bg-amber-100 space-x-2">
+                  <span className="text-2xl rounded-full font-extrabold text-zinc-700">
+                    ·{" "}
+                  </span>
+                  <span className="text-base font-medium">
+                    打开终端（Git Bash）/命令行，执行以下命令:
+                  </span>
+                </p>
+                <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                  <code className="flex flex-col text-white space-y-3">
+                    {/* code · 1 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic"># 设置用户名</span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">config </span>
+                        --global <span className="text-white">user.name </span>
+                        <span className="text-green-400">"你的用户名"</span>
+                      </span>
+                    </span>
+                    {/* code · 2 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic"># 设置邮箱</span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">config </span>
+                        --global <span className="text-white">user.email </span>
+                        <span className="text-green-400">
+                          "你的邮箱@example.com"
+                        </span>
+                      </span>
+                    </span>
+                    {/* code · 3 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic"># 检查配置</span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">config </span>
+                        --list
+                      </span>
+                    </span>
+                  </code>
+                </pre>
+                <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                  第 3 步：创建 Gitub 仓库
+                </h2>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  3.1 在 Github 上创建新仓库
+                </h3>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>登录 Github ，点击右上角 "+" </span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>选择 "New repository" 创建新仓库</span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>填写仓库名称和描述，例如 "my-nextjs-project"</span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>选择 "Public" 或 "Private" 仓库</span>
+                </p>
+                <p className="ml-3">
+                  <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                    ·
+                  </span>
+                  <span>
+                    <span className="font-bold">不要 </span>勾选 "Add a README
+                    file" 选项 （后续推送到远程仓库时，因本地没有 README
+                    文件，会导致推送失败）
+                  </span>
+                </p>
+                <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                  第 4 步：初始化本地项目
+                </h2>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  4.1 进入项目目录
+                </h3>
+                <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                  <code className="flex flex-col text-white space-y-3">
+                    {/* code · 1 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 切换到你的项目文件夹
+                      </span>
+                      <span className="text-blue-400">
+                        cd{" "}
+                        <span className="text-white">
+                          /path/to/your/project
+                        </span>
+                      </span>
+                    </span>
+                  </code>
+                </pre>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  4.2 初始化 Git 仓库
+                </h3>
+                <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                  <code className="flex flex-col text-white space-y-3">
+                    {/* code · 1 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic"># 初始化 Git</span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">init</span>
+                      </span>
+                    </span>
+                    {/* code · 2 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 查看当前状态
+                      </span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">status</span>
+                      </span>
+                    </span>
+                  </code>
+                </pre>
+                <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                  第 5 步：添加和提交代码
+                </h2>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  5.1 添加所有文件到暂存区
+                </h3>
+                <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                  <code className="flex flex-col text-white space-y-3">
+                    {/* code · 1 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 添加所有文件
+                      </span>
+                      <span className="text-blue-400">git add .</span>
+                    </span>
+                    {/* code · 2 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 或添加特定文件
+                      </span>
+                      <span className="text-blue-400">
+                        git add{" "}
+                        <span className="text-white">filename1 filename2</span>
+                      </span>
+                    </span>
+                    {/* code · 3 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic"># 检查状态</span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">status</span>
+                      </span>
+                    </span>
+                  </code>
+                </pre>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  5.2 提交代码到本地仓库
+                </h3>
+                <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                  <code className="flex flex-col text-white space-y-3">
+                    {/* code · 1 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 提交到本地仓库
+                      </span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">commit </span>
+                        -m{" "}
+                        <span className="text-white">
+                          "初始提交：项目基础框架"
+                        </span>
+                      </span>
+                    </span>
+                    {/* code · 2 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 查看提交历史
+                      </span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">log</span>
+                      </span>
+                    </span>
+                  </code>
+                </pre>
+                <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                  第 6 步：连接远程仓库并推送
+                </h2>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  6.1 添加远程仓库地址
+                </h3>
+                <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                  <code className="flex flex-col text-white space-y-3">
+                    {/* code · 1 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 添加远程仓库（将 URL 替换为你的仓库地址）
+                      </span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">remote </span>
+                        add{" "}
+                        <span className="text-white">
+                          origin https://github.com/你的用户名/仓库名.git
+                        </span>
+                      </span>
+                    </span>
+                    {/* code · 2 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 验证远程仓库
+                      </span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">remote </span>-v
+                      </span>
+                    </span>
+                  </code>
+                </pre>
+                <h3 className="text-20 font-bold tracking-tight text-zinc-700">
+                  6.2 首次推送代码
+                </h3>
+                <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                  <code className="flex flex-col text-white space-y-3">
+                    {/* code · 1 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 推送代码到 GitHub
+                      </span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">push </span>
+                        -u <span className="text-white">origin main</span>
+                      </span>
+                    </span>
+                    {/* code · 2 */}
+                    <span className="flex flex-col">
+                      <span className="text-gray-400 italic">
+                        # 如果默认分支是 master，使用
+                      </span>
+                      <span className="text-blue-400">
+                        git <span className="text-white">push </span>
+                        -u <span className="text-white">origin master</span>
+                      </span>
+                    </span>
+                  </code>
+                </pre>
+              </div>
+              <div className="mt-32 flex w-full justify-center">
+                <p className="text-4xl font-bold">
+                  🎉 恭喜你！完成代码上传至 GitHub 仓库
+                </p>
+              </div>
+            </>
+          )}
 
           {articleId === 3 && <></>}
 

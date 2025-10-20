@@ -31,14 +31,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex h-full bg-zinc-50 ">
+        <div className="flex h-full bg-zinc-50">
           <div className="flex w-full">
-            <div className="fixed inset-0 flex justify-center px-8">
-              <div className="flex w-full max-w-7xl px-8">
+            <div className="fixed inset-0 flex w-full justify-center px-8">
+              <div className="flex w-full max-w-7xl px-8 /*bg-amber-300">
                 <div className="w-full bg-white ring-1 ring-zinc-100"></div>
               </div>
             </div>
-            <div className="relative flex w-full items-center /*bg-amber-300 flex-col">
+            <div className="relative flex w-full items-center flex-col">
               {/* 导航栏 */}
               <NavbarTop />
 

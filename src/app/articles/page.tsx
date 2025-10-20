@@ -30,7 +30,10 @@ export default function ArticlesView() {
                   scale-95 bg-zinc-100 opacity-0 transition group-hover:scale-100
                   group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"
                       ></div>
-                      <a href={`/articles/articleItem/${item.id}`}>
+                      <a
+                        href={`/articles/articleItem/${item.id}`}
+                        target="_blank"
+                      >
                         <span
                           className="absolute -inset-x-4 -inset-y-6 
                     z-20 "

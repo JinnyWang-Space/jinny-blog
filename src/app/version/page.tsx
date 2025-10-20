@@ -1,6 +1,6 @@
 export default function VersionView() {
   return (
-    <div className="w-full max-w-5xl mt-16">
+    <div className="w-full max-w-5xl mt-16 /*bg-amber-100">
       <header className="max-w-2xl">
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl leading-tight">
           关于网站的更新日志。
