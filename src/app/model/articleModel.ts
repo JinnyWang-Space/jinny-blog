@@ -27,4 +27,11 @@ export const articleList = [
     content:
       "这是一篇关于鸿蒙开发 —— 下载 DevEco Studio 的文章, 你可以在该文章中学习到如何下载和安装 DevEco Studio, 从而开始鸿蒙开发。",
   },
+  // {
+  //   id: 5,
+  //   title: "VMware Workstation Pro 的下载与安装",
+  //   date: "11月 2，2025",
+  //   content:
+  //     "这是一篇关于 VMware Workstation Pro 的下载与安装的文章, 你可以在该文章中学习到如何下载和安装 VMware Workstation Pro, 从而开始虚拟机开发。",
+  // },
 ];

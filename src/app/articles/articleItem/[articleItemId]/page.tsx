@@ -794,7 +794,291 @@ export default function ArticleItem({
             </>
           )}
 
-          {articleId === 3 && <></>}
+          {articleId === 3 && (
+            <>
+              <div className="mt-10 space-y-8">
+                {/* 问题1：分支问题 */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    ⚠️ 问题1：分支问题
+                  </h2>
+                  <p className="text-base font-medium">
+                    <span className="text-base font-bold">概述：</span>
+                    git push 失败，提示 master 与 main 不匹配
+                  </p>
+                  <p className="text-base font-semibold">错误信息：</p>
+                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-red-400 italic">
+                          error: filed to push some refs to '你的远程仓库地址'
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                  <p className="text-base font-semibold">解决方案：</p>
+                  <p className="">
+                    GitHub 现在默认使用 main 作为主分支名，但你的本地可能还是
+                    master。
+                  </p>
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 重命名本地分支
+                        </span>
+                        <span className="text-blue-400">
+                          git <span className="text-white">branch </span>
+                          -M <span className="text-white">main </span>
+                        </span>
+                      </span>
+                      {/* code · 2 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 然后再次推送
+                        </span>
+                        <span className="text-blue-400">
+                          git <span className="text-white">push </span>
+                          -u <span className="text-white">origin main </span>
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                  <p className="">或者，如果 GitHub 仓库是 master：</p>
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-blue-400">
+                          git <span className="text-white">push </span>
+                          -u <span className="text-white">origin master </span>
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                </div>
+                {/* 问题2：行尾符问题 */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    ⚠️ 问题2：行尾符问题
+                  </h2>
+                  <p className="text-base font-medium">
+                    <span className="text-base font-bold ">概述：</span>
+                    这个警告是因为不同操作系统使用不同的行结束符，Git
+                    检测到你的文件中使用的是 LF，但在 Windows 上默认会转换为
+                    CRLF。
+                  </p>
+                  <p className="text-base font-semibold">警告信息：</p>
+                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          warning：LF will be rrplaced by CRLF
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                  <p className="text-base font-bold ">这会影响我的代码吗？</p>
+                  <p className="text-base font-medium">
+                    <span className="text-base font-bold">通常不会！</span>
+                    这只是一个格式转换警告，不会影响代码功能。但如果你在跨平台协作（比如你和同事用不同操作系统），可能会在代码对比时看到不必要的差异。
+                  </p>
+                  <p className="text-base font-semibold">解决方案：</p>
+                  <p className="ml-3">
+                    <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                      ·
+                    </span>
+                    如果你只是在 Windows
+                    上开发，可以保持默认设置，忽略这个警告。
+                  </p>
+                  <p className="ml-3">
+                    <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                      ·
+                    </span>
+                    如果你需要在 Windows、Mac、Linux 之间协作，或者使用 Docker
+                    等环境：
+                  </p>
+                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 禁用自动转换
+                        </span>
+                        <span className="text-blue-400 italic">
+                          git
+                          <span className="text-white">
+                            {" "}
+                            config core.autocrlf{" "}
+                          </span>
+                          <span className="text-orange-400 italic">false</span>
+                        </span>
+                      </span>
+                      {/* code · 2 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 然后重新添加文件
+                        </span>
+                        <span className="text-blue-400 italic">
+                          git
+                          <span className="text-white"> reset</span>
+                        </span>
+                        <span className="text-blue-400 italic">git add .</span>
+                      </span>
+                    </code>
+                  </pre>
+                  <p className="ml-3">
+                    <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                      ·
+                    </span>
+                    告诉 Git 不要警告行尾符问题
+                  </p>
+                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 禁用警告但不改变行为
+                        </span>
+                        <span className="text-blue-400 italic">
+                          git
+                          <span className="text-white">
+                            {" "}
+                            config core.safecrlf{" "}
+                          </span>
+                          <span className="text-orange-400 italic">false</span>
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                </div>
+
+                {/*问题3：配置用户信息问题*/}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    ⚠️ 问题3：配置用户信息问题
+                  </h2>
+                  <p className="text-base font-medium">
+                    <span className="text-base font-bold ">概述：</span>
+                    Git
+                    要求每次提交都必须记录作者信息（姓名和邮箱），这是版本控制的基本要求。错误信息的意思是："作者身份未知"。
+                    这个问题是因为 Git
+                    需要知道是谁提交的代码，但你还没有配置用户信息。
+                  </p>
+                  <p className="text-base font-semibold">警告信息：</p>
+                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          Author identity unknown
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                  <p className="text-base font-semibold">解决方案：</p>
+                  <p className="">配置全局的 Git 用户信息</p>
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 配置用户名（使用你的 GitHub 用户名）
+                        </span>
+                        <span className="text-blue-400">
+                          git <span className="text-white">config </span>
+                          --global{" "}
+                          <span className="text-white">user.name </span>
+                          <span className="text-green-400">
+                            "GitHub用户名"{" "}
+                          </span>
+                        </span>
+                      </span>
+                      {/* code · 2 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 配置邮箱（使用你的 GitHub 注册邮箱）
+                        </span>
+                        <span className="text-blue-400">
+                          git <span className="text-white">config </span>
+                          --global{" "}
+                          <span className="text-white">user.email </span>
+                          <span className="text-green-400">
+                            "GitHub注册邮箱"{" "}
+                          </span>
+                        </span>
+                      </span>
+                      {/* code · 3 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic"># 验证配置</span>
+                        <span className="text-blue-400">
+                          git <span className="text-white">config </span>
+                          --global --list
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                  <p className="">或者，配置当前项目的 Git 用户信息</p>
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
+                    <code className="flex flex-col text-white space-y-3">
+                      {/* code · 1 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 进入项目目录
+                        </span>
+                        <span className="text-green-400">
+                          cd{" "}
+                          <span className="text-white">
+                            path/to/your/project{" "}
+                          </span>
+                        </span>
+                      </span>
+                      {/* code · 2 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic">
+                          # 配置项目用户信息（去掉 --global）
+                        </span>
+                        <span className="text-blue-400">
+                          git{" "}
+                          <span className="text-white">config user.name </span>
+                          <span className="text-green-400">"GitHub用户名"</span>
+                        </span>
+                        <span className="text-blue-400">
+                          git{" "}
+                          <span className="text-white">config user.email </span>
+                          <span className="text-green-400">
+                            "GitHub注册邮箱"
+                          </span>
+                        </span>
+                      </span>
+                      {/* code · 3 */}
+                      <span className="flex flex-col">
+                        <span className="text-gray-400 italic"># 验证配置</span>
+                        <span className="text-blue-400">
+                          git <span className="text-white">config </span>--list
+                        </span>
+                      </span>
+                    </code>
+                  </pre>
+                </div>
+
+                {/*问题4：远程仓库未更改*/}
+                {/* <div className="space-y-4">
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    ⚠️ 问题4：远程仓库未更改
+                  </h2>
+                </div> */}
+              </div>
+              <div className="mt-32 flex w-full justify-center">
+                <p className="text-4xl font-bold">
+                  🎉 希望能帮你解决在 Git 中的问题
+                </p>
+              </div>
+            </>
+          )}
 
           {articleId === 4 && <></>}
         </article>

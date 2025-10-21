@@ -5,7 +5,7 @@ export default function ArticlesView() {
       <header className="max-w-2xl">
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl leading-tight">
           {/* 利用 Vercel 打造个人网站 */}
-          撰写有关鸿蒙开发、前端开发的文章。
+          撰写有关鸿蒙开发、前端开发等其他技术的文章。
           {/* 撰写有关软件设计、公司建设和航空航天业的文章。 */}
         </h1>
         <p className="mt-6 text-base text-zinc-600">
