@@ -1,10 +1,10 @@
 export default function UserAgreement() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 /*bg-amber-600">
-        <main className="flex w-full flex-col items-start justify-start /*space-y-8">
-          {/*图标*/}
-          <div className="flex w-full items-center justify-center">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6">
+        <main className="flex flex-col items-center justify-start w-full">
+          {/* 图标和标题部分保持不变 */}
+          <div className="flex w-full items-center justify-center mb-4">
             <svg
               width="36.000000"
               height="36.000000"
@@ -12,6 +12,7 @@ export default function UserAgreement() {
               fill="none"
               color="#A8D6D2"
             >
+              {/* 保持您原有的SVG代码不变 */}
               <defs>
                 <clipPath id="clip40_7009">
                   <rect
@@ -94,39 +95,37 @@ export default function UserAgreement() {
             </svg>
           </div>
 
-          {/*标题*/}
-          <h2 className="flex w-full items-center justify-center text-2xl font-bold text-gray-900 mt-4">
+          <h2 className="w-full text-center text-xl sm:text-2xl font-bold text-gray-900 mt-2">
             观澜问卷用户服务协议
           </h2>
-          <p className="flex w-full items-center justify-center text-base text-gray-500 font-medium mt-2">
+          <p className="w-full text-center text-sm sm:text-base text-gray-500 font-medium mt-2">
             <span className="font-medium">更新日期：2025年11月12日</span>
           </p>
 
-          {/* 1.关于我们 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-8">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          {/* 1-5部分保持不变 */}
+          <div className="flex w-full items-start justify-start flex-col mt-6 sm:mt-8">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               1. 关于我们
             </h5>
-            <p className="mt-2 text-lg text-black font-base">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
               感谢您选择使用观澜问卷。
               <br />
-              观澜问卷是由 王津毅（以下简称“我们”）提供与运营。
+              观澜问卷是由 王津毅（以下简称"我们"）提供与运营。
               <br />
-              观澜问卷用户服务协议是由我们与用户（以下简称“您”）关于使用观澜问卷服务所订立的有效协议。
+              观澜问卷用户服务协议是由我们与用户（以下简称"您"）关于使用观澜问卷服务所订立的有效协议。
             </p>
           </div>
 
-          {/* 2.协议范围、目的及确认方式 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               2. 协议范围、目的及确认方式
             </h5>
-            <p className="mt-2 text-lg text-black font-base">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
               本《用户服务协议》及其附属协议、以及所有在页面展示的单项协议、规则、操作提示或声明（以下合称为
-              <span className="font-bold">“本协议”</span>
-              ）共同构成我们为您提供“观澜问卷”全部服务所依据的正式条款，是一个不可分割的整体，您需同时遵守。{" "}
+              <span className="font-bold">"本协议"</span>
+              ）共同构成我们为您提供"观澜问卷"全部服务所依据的正式条款，是一个不可分割的整体，您需同时遵守。{" "}
               <br />
-              <span className="font-bold">
+              <span className="font-bold text-sm sm:text-base">
                 请您务必审慎阅读、充分理解本协议各条款内容，特别是以加粗形式提示的、涉及您重大权益的免责或限责条款。
               </span>
               <br />
@@ -139,109 +138,109 @@ export default function UserAgreement() {
             </p>
           </div>
 
-          {/* 3.使用本服务的要求 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               3. 使用本服务的要求
             </h5>
-            <p className="mt-2 text-lg text-black font-bold">
-              3.1
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
+              <span className="font-bold">3.1</span>{" "}
               您承诺，在开始使用我们的服务时，您是具备完全民事行为能力的自然人、法人或其他组织。若您为无民事行为能力人或限制民事行为能力人，请在监护人的指导下阅读本协议，并在取得监护人同意的前提下使用本服务。
               <br />
-              3.2
+              <br />
+              <span className="font-bold">3.2</span>{" "}
               您明确声明并保证：您具备足够的法律权利和能力（包括但不限于获得必要的授权）来签署并履行本协议。您对本协议的签署和履行不会违反您须遵守的任何其他协议、安排或法律义务。
               <br />
-              3.3
+              <br />
+              <span className="font-bold">3.3</span>{" "}
               如您所属的国家或地区法律法规排除本协议的任何条款，或禁止您使用我们的服务的全部或部分功能，您应立即停止使用相关服务。否则，您继续使用服务的行为即视为您同意自行承担由此产生的全部法律风险及责任。
             </p>
           </div>
 
-          {/* 4.服务内容 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               4. 服务内容
             </h5>
-            <p className="mt-2 text-lg text-black font-base">
-              4.1 服务概述
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
+              <span className="font-bold">4.1 服务概述</span>
               <br />
               我们通过互联网（含移动互联网）为您提供的一站式、跨平台的在线问卷创建、分发、收集与数据分析服务平台。您可以通过本平台，高效地完成从问卷设计到数据洞察的全流程工作。
               <br />
-              4.2 核心功能
+              <br />
+              <span className="font-bold">4.2 核心功能</span>
               <br />
               我们为您提供以下核心服务内容，包括但不限于：
-              <br />
-              <span className="font-bold">· 问卷全生命周期管理：</span>
+              <br />· <span className="font-bold">问卷全生命周期管理：</span>
               支持问卷的创建、编辑、复制、删除、发布与暂停。
-              <br />
-              <span className="font-bold">· 多渠道问卷分发：</span>
-              支持生成问卷二维码，并深度集成华为ScanKit，实现“扫码即填”的便捷体验。
-              <br />
-              <span className="font-bold">· 数据收集与云端同步：</span>
+              <br />· <span className="font-bold">多渠道问卷分发：</span>
+              支持生成问卷二维码，并深度集成华为ScanKit，实现"扫码即填"的便捷体验。
+              <br />· <span className="font-bold">数据收集与云端同步：</span>
               基于华为云数据库（CloudDB）实现填写数据的实时、安全收集与多端同步。
-              <br />
-              <span className="font-bold">· 数据统计与可视化：</span>
+              <br />· <span className="font-bold">数据统计与可视化：</span>
               对回收的数据进行自动整理与统计分析，并提供可视化的图表展示。
-              <br />
-              <span className="font-bold">· 原子化服务入口：</span>
+              <br />· <span className="font-bold">原子化服务入口：</span>
               通过鸿蒙服务卡片（基于Form
-              Kit），您可在设备桌面实现“一键直达”问卷创建页与模板库，极大提升操作效率。
-              <br />
-              <span className="font-bold">· 模板中心：</span>
+              Kit），您可在设备桌面实现"一键直达"问卷创建页与模板库，极大提升操作效率。
+              <br />· <span className="font-bold">模板中心：</span>
               提供丰富的问卷模板，助您快速启动各类调查项目。
-              <br />
-              <span className="font-bold">· 多端适配体验：</span>
+              <br />· <span className="font-bold">多端适配体验：</span>
               应用严格遵循HarmonyOS设计规范，确保在手机、平板等多种设备上均能提供布局合理、操作流畅的统一体验。
-              <br />
-              <span className="font-bold">· 账号与数据安全：</span>
+              <br />· <span className="font-bold">账号与数据安全：</span>
               通过华为账号（Account Kit）实现安全便捷的登录与数据管理。
               <br />
-              4.3 服务依赖与特性
+              <br />
+              <span className="font-bold">4.3 服务依赖与特性</span>
               <br />
               您理解并同意，本服务的提供依赖于华为HarmonyOS生态系统及其相关Kit（如云数据库、账号体系等），并需要稳定的互联网连接。部分功能的可用性可能因设备、网络或相关第三方服务的调整而受到影响。
             </p>
           </div>
 
-          {/* 5.用户使用规则 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               5. 用户使用规则
             </h5>
-            <p className="mt-2 text-lg text-black font-bold">
-              5.1 账户行为与安全责任
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
+              <span className="font-bold">5.1 账户行为与安全责任</span>
               <br />
-              您通过华为账号身份验证要素登录并使用本服务的一切操作，均视为您本人的行为。您应妥善保管与您账号相关的所有身份要素（包括但不限于账号、密码），并对经由该账号进行的所有活动及其后果承担全部责任。因您的原因（如主动泄露、丢失设备、被他人盗用等）导致的账号、密码等信息被非授权使用，由此引发的一切风险和损失应由您自行承担。{" "}
+              您通过华为账号身份验证要素登录并使用本服务的一切操作，均视为您本人的行为。您应妥善保管与您账号相关的所有身份要素（包括但不限于账号、密码），并对经由该账号进行的所有活动及其后果承担全部责任。因您的原因（如主动泄露、丢失设备、被他人盗用等）导致的账号、密码等信息被非授权使用，由此引发的一切风险和损失应由您自行承担。
               <br />
-              5.2 信息真实性与准确性
+              <br />
+              <span className="font-bold">5.2 信息真实性与准确性</span>
               <br />
               在使用我们的服务时，您承诺：
               <br />
               · 您提供的注册信息及身份资料是真实、准确、完整且有效的。
-              <br />·
-              您创建、编辑并分发的问卷内容及相关信息（包括但不限于题目、选项、说明）是经过您仔细核对并确认的。您需对问卷内容的合法性、真实性、准确性独立承担全部责任。{" "}
               <br />
-              5.3 审慎使用与自主判断
+              ·
+              您创建、编辑并分发的问卷内容及相关信息（包括但不限于题目、选项、说明）是经过您仔细核对并确认的。您需对问卷内容的合法性、真实性、准确性独立承担全部责任。
               <br />
-              请您结合自身实际需求，审慎确认并选择使用我们的各项服务。您知悉并理解，问卷的创建、分发策略（如分发渠道、目标人群、发布时间等）及后续的数据处理行为均由您自主决定并自行实施。{" "}
               <br />
-              5.4 自我责任承担
+              <span className="font-bold">5.3 审慎使用与自主判断</span>
+              <br />
+              请您结合自身实际需求，审慎确认并选择使用我们的各项服务。您知悉并理解，问卷的创建、分发策略（如分发渠道、目标人群、发布时间等）及后续的数据处理行为均由您自主决定并自行实施。
+              <br />
+              <br />
+              <span className="font-bold">5.4 自我责任承担</span>
               <br />
               您知悉并同意，如因您自身出现包括但不限于输入错误、操作不当、选择失误、问卷设计存在歧义或逻辑错误、对统计结果的误读等情形，从而导致问卷数据失效、收集结果偏差或遭受任何其他经济损失与后果的，均需由您自行承担，观澜问卷服务平台不对此承担任何责任。
               <br />
-              5.5 合法与合规使用
+              <br />
+              <span className="font-bold">5.5 合法与合规使用</span>
               <br />
               您承诺不得利用本服务制作、分发、传播任何包含反动、淫秽、欺诈、诽谤、侵犯他人隐私或知识产权等违反法律法规或公序良俗的问卷内容。您应确保通过本服务收集、存储、使用个人数据的行为已获得数据主体的充分授权，并遵守适用的个人信息保护法律法规。
             </p>
           </div>
 
-          {/* 6.免责声明 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          {/* 6. 免责声明 */}
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               6. 免责声明
             </h5>
-            <p className="mt-2 text-lg text-black font-bold">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
               我们基于互联网及电信网络提供服务。在您使用我们的服务之前，应对互联网服务及电子数据业务可能蕴含的风险（包括但不限于数据丢失、泄露、统计偏差等）有一定的了解。
               <br />
+              <br />
               由于网络故障、系统检修、维护或不稳定，或黑客攻击，或电力部门技术调整或故障，或您所依赖的第三方云服务等原因，导致我们的服务存在失败、中断或延迟，从而导致问卷创建失败、分发链接无法访问、数据填写丢失或统计结果延迟的，不视为我们的运营方违约，但我们将尽一切努力在合理期限内恢复正常服务。
+              <br />
               <br />
               我们作为技术服务平台仅按现状提供服务，在法律允许的范围内，我们对以下情形导致的服务中断、延迟、数据异常或受阻不承担责任：
               <br />
@@ -260,15 +259,16 @@ export default function UserAgreement() {
             </p>
           </div>
 
-          {/* 7.用户禁止性规定 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          {/* 7. 用户禁止性规定 */}
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               7. 用户禁止性规定
             </h5>
-            <p className="mt-2 text-lg text-black font-base">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
               <span className="font-bold">
                 您在使用本软件时必须遵守法律法规，不得利用本软件提供的服务从事违法违规行为，包括但不限于：
               </span>
+              <br />
               <br />
               （1）
               发布、传送、传播、存储危害国家安全统一、破坏社会稳定、违反公序良俗、侮辱、诽谤、淫秽、暴力以及任何违反国家法律法规的内容；
@@ -276,9 +276,12 @@ export default function UserAgreement() {
               （2）
               发布、传送、传播、存储侵害他人知识产权、商业秘密等合法权利的内容；
               <br />
-              （3） 恶意虚构事实、隐瞒真相以误导、欺骗他人； <br />
-              （4） 发布、传送、传播广告信息及垃圾信息； <br />
+              （3） 恶意虚构事实、隐瞒真相以误导、欺骗他人；
+              <br />
+              （4） 发布、传送、传播广告信息及垃圾信息；
+              <br />
               （5） 其他法律法规禁止的行为。
+              <br />
               <br />
               <span className="font-bold">
                 如因您违反本条约定，导致任何第三方损害的，您应独立承担责任；我们因此遭受损失的，您也应当一并赔偿。
@@ -286,15 +289,17 @@ export default function UserAgreement() {
             </p>
           </div>
 
-          {/* 8.对本协议的修订 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          {/* 8. 对本协议的修订 */}
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               8. 对本协议的修订
             </h5>
-            <p className="mt-2 text-lg text-black font-base">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
               我们有权在必要时修改本协议条款，您可以在本软件的最新版本中查阅相关协议条款。
               <br />
+              <br />
               更新后的协议条款一旦公布即代替原来的协议条款，我们会在服务页面上及时发布对本协议的变更。若对本协议的修订会严重影响您或严重限制您对本服务的访问或使用，我们会在变更之前的合理时间内通知您。对于为了满足安全、法律或监管要求而对本服务作出的修订，我们可能无法满足前述的预告时间要求，但我们会尽快通知您。
+              <br />
               <br />
               <span className="font-bold">
                 本协议条款变更后，如果您不接受修改后的协议，请立即停止使用本服务；如果您继续访问或使用本服务，即被视为您已接受修改后的协议。
@@ -302,18 +307,20 @@ export default function UserAgreement() {
             </p>
           </div>
 
-          {/* 9.适用法律及管辖 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          {/* 9. 适用法律及管辖 */}
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               9. 适用法律及管辖
             </h5>
-            <p className="mt-2 text-lg text-black font-base">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
               <span className="font-bold">
                 本协议的订立、执行、解释及争议的解决均适用中华人民共和国法律。
               </span>
               <br />
+              <br />
               您同意，本协议签订地为
               <span className="font-bold">中国天津市北辰区。</span>
+              <br />
               <br />
               在合同履行过程中双方如发生纠纷，应协商解决；
               <span className="font-bold">
@@ -322,13 +329,14 @@ export default function UserAgreement() {
             </p>
           </div>
 
-          {/* 10.联系我们 */}
-          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
-            <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
+          {/* 10. 联系我们 */}
+          <div className="flex w-full items-start justify-start flex-col mt-6">
+            <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               10. 联系我们
             </h5>
-            <p className="mt-2 text-lg text-black font-base">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
               如您对本协议有任何疑问，请通过邮箱联系我们。
+              <br />
               <br />
               邮箱地址：jinnywang@petalmail.com
             </p>
