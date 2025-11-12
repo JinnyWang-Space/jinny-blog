@@ -103,7 +103,7 @@ export default function UserAgreement() {
           </p>
 
           {/* 1.关于我们 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-8">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-8">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               1. 关于我们
             </h5>
@@ -117,7 +117,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 2.协议范围、目的及确认方式 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               2. 协议范围、目的及确认方式
             </h5>
@@ -140,7 +140,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 3.使用本服务的要求 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               3. 使用本服务的要求
             </h5>
@@ -157,7 +157,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 4.服务内容 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               4. 服务内容
             </h5>
@@ -202,7 +202,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 5.用户使用规则 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               5. 用户使用规则
             </h5>
@@ -234,7 +234,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 6.免责声明 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               6. 免责声明
             </h5>
@@ -261,7 +261,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 7.用户禁止性规定 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               7. 用户禁止性规定
             </h5>
@@ -287,7 +287,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 8.对本协议的修订 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               8. 对本协议的修订
             </h5>
@@ -303,7 +303,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 9.适用法律及管辖 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               9. 适用法律及管辖
             </h5>
@@ -323,7 +323,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 10.联系我们 */}
-          <div className="flex w-5xl sm:w-2xl items-start justify-start flex-col mt-4">
+          <div className="flex w-xl /*sm:w-2xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               10. 联系我们
             </h5>
