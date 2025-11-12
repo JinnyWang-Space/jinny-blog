@@ -39,16 +39,15 @@ export default function RootLayout({
               </div>
             </div>
             <div className="relative flex w-full items-center flex-col">
+              {" "}
               {/* 导航栏 */}
               <NavbarTop />
-
               {/* 中间容器 */}
               {children}
               {/* 网络分析 */}
               <Analytics />
               {/* 速度分析 */}
               <SpeedInsights />
-
               {/* 底部导航栏 */}
               <Footer />
             </div>

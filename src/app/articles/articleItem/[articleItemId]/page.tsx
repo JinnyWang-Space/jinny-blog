@@ -807,7 +807,7 @@ export default function ArticleItem({
                     git push 失败，提示 master 与 main 不匹配
                   </p>
                   <p className="text-base font-semibold">错误信息：</p>
-                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
                     <code className="flex flex-col text-white space-y-3">
                       {/* code · 1 */}
                       <span className="flex flex-col">
@@ -871,11 +871,11 @@ export default function ArticleItem({
                     CRLF。
                   </p>
                   <p className="text-base font-semibold">警告信息：</p>
-                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
                     <code className="flex flex-col text-white space-y-3">
                       {/* code · 1 */}
                       <span className="flex flex-col">
-                        <span className="text-gray-400 italic">
+                        <span className="text-white italic">
                           warning：LF will be rrplaced by CRLF
                         </span>
                       </span>
@@ -901,7 +901,7 @@ export default function ArticleItem({
                     如果你需要在 Windows、Mac、Linux 之间协作，或者使用 Docker
                     等环境：
                   </p>
-                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
                     <code className="flex flex-col text-white space-y-3">
                       {/* code · 1 */}
                       <span className="flex flex-col">
@@ -936,7 +936,7 @@ export default function ArticleItem({
                     </span>
                     告诉 Git 不要警告行尾符问题
                   </p>
-                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
                     <code className="flex flex-col text-white space-y-3">
                       {/* code · 1 */}
                       <span className="flex flex-col">
@@ -969,11 +969,11 @@ export default function ArticleItem({
                     需要知道是谁提交的代码，但你还没有配置用户信息。
                   </p>
                   <p className="text-base font-semibold">警告信息：</p>
-                  <pre className="language-c bg-zinc-800 rounded-xl px-6 py-6">
+                  <pre className="language-c bg-zinc-950 rounded-xl px-6 py-6">
                     <code className="flex flex-col text-white space-y-3">
                       {/* code · 1 */}
                       <span className="flex flex-col">
-                        <span className="text-gray-400 italic">
+                        <span className="text-white italic">
                           Author identity unknown
                         </span>
                       </span>
