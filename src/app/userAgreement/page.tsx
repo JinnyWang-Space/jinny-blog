@@ -28,67 +28,67 @@ export default function UserAgreement() {
                   id="path"
                   d="M74.58 85L23.08 85C21.97 85 21.03 84.6 20.25 83.82C19.47 83.04 19.08 82.1 19.08 81L19.08 15C19.08 13.89 19.47 12.95 20.25 12.17C21.03 11.39 21.97 11 23.08 11L70.58 11C71.68 11 72.62 11.39 73.4 12.17C74.18 12.95 74.58 13.89 74.58 15L74.58 70.5"
                   stroke="currentColor"
-                  stroke-opacity="1.000000"
-                  stroke-width="6.000000"
+                  strokeOpacity="1.000000"
+                  strokeWidth="6.000000"
                 />
                 <path
                   className="icon-emphasize"
                   id="path"
                   d="M74 74L74.25 74C75.35 74 76.29 74.39 77.07 75.17C77.85 75.95 78.25 76.89 78.25 78C78.25 79.1 77.85 80.04 77.07 80.82C76.29 81.6 75.35 82 74.25 82L37.41 82C38.56 79.33 38.56 76.66 37.41 74L74 74ZM74 68L28.43 68C27.62 67.98 26.9 68.24 26.29 68.78C25.68 69.32 25.33 70 25.26 70.81C25.2 71.68 25.47 72.42 26.07 73.05C26.66 73.68 27.39 74 28.26 74L28.68 74C29.85 74.06 30.77 74.56 31.47 75.5C32.46 76.83 32.59 78.24 31.85 79.73C31.11 81.22 29.91 81.98 28.25 82L27.16 82L27.16 84.84C27.17 85.72 27.5 86.47 28.13 87.08C28.76 87.7 29.52 88 30.41 88L74.25 88C74.33 88 74.41 88 74.5 88C75.82 88 77.1 87.74 78.32 87.23C79.55 86.73 80.63 86 81.57 85.07C82.5 84.13 83.23 83.05 83.73 81.82C84.24 80.6 84.5 79.32 84.5 78C84.5 76.67 84.24 75.39 83.73 74.17C83.23 72.94 82.5 71.86 81.57 70.92C80.63 69.99 79.55 69.26 78.32 68.76C77.1 68.25 75.82 68 74.5 68C74.41 67.99 74.33 67.99 74.25 68L74 68Z"
                   fill="currentColor"
-                  fill-opacity="1.000000"
-                  fill-rule="nonzero"
+                  fillOpacity="1.000000"
+                  fillRule="nonzero"
                 />
                 <path
                   className="icon-emphasize"
                   id="line"
                   d="M30.85 32.98L30.83 33C29.15 33 27.83 31.68 27.83 30C27.83 28.31 29.15 27 30.83 27L30.85 27.02L30.85 32.98ZM62.81 27.02L62.83 27C64.51 27 65.83 28.31 65.83 30C65.83 31.68 64.51 33 62.83 33L62.81 32.98L62.81 27.02Z"
                   fill="currentColor"
-                  fill-opacity="0"
-                  fill-rule="nonzero"
+                  fillOpacity="0"
+                  fillRule="nonzero"
                 />
                 <path
                   className="icon-emphasize"
                   id="line"
                   d="M30.83 30L62.83 30"
                   stroke="currentColor"
-                  stroke-opacity="1.000000"
-                  stroke-width="6.000000"
-                  stroke-linecap="round"
+                  strokeOpacity="1.000000"
+                  strokeWidth="6.000000"
+                  strokeLinecap="round"
                 />
                 <path
                   className="icon-emphasize"
                   id="line"
                   d="M30.85 45.04L30.83 45.06C29.15 45.06 27.83 43.74 27.83 42.06C27.83 40.38 29.15 39.06 30.83 39.06L30.85 39.08L30.85 45.04ZM62.81 39.08L62.83 39.06C64.51 39.06 65.83 40.38 65.83 42.06C65.83 43.74 64.51 45.06 62.83 45.06L62.81 45.04L62.81 39.08Z"
                   fill="currentColor"
-                  fill-opacity="0"
-                  fill-rule="nonzero"
+                  fillOpacity="0"
+                  fillRule="nonzero"
                 />
                 <path
                   className="icon-emphasize"
                   id="line"
                   d="M30.83 42.06L62.83 42.06"
                   stroke="currentColor"
-                  stroke-opacity="1.000000"
-                  stroke-width="6.000000"
-                  stroke-linecap="round"
+                  strokeOpacity="1.000000"
+                  strokeWidth="6.000000"
+                  strokeLinecap="round"
                 />
                 <path
                   className="icon-emphasize"
                   id="line"
                   d="M30.85 57.1L30.83 57.12C29.15 57.12 27.83 55.8 27.83 54.12C27.83 52.43 29.15 51.12 30.83 51.12L30.85 51.14L30.85 57.1ZM46.81 51.14L46.83 51.12C48.51 51.12 49.83 52.43 49.83 54.12C49.83 55.8 48.51 57.12 46.83 57.12L46.81 57.1L46.81 51.14Z"
                   fill="currentColor"
-                  fill-opacity="0"
-                  fill-rule="nonzero"
+                  fillOpacity="0"
+                  fillRule="nonzero"
                 />
                 <path
                   className="icon-emphasize"
                   id="line"
                   d="M30.83 54.12L46.83 54.12"
                   stroke="currentColor"
-                  stroke-opacity="1.000000"
-                  stroke-width="6.000000"
-                  stroke-linecap="round"
+                  strokeOpacity="1.000000"
+                  strokeWidth="6.000000"
+                  strokeLinecap="round"
                 />
               </g>
             </svg>
@@ -103,7 +103,7 @@ export default function UserAgreement() {
           </p>
 
           {/* 1.关于我们 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-8">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-8">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               1. 关于我们
             </h5>
@@ -117,7 +117,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 2.协议范围、目的及确认方式 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               2. 协议范围、目的及确认方式
             </h5>
@@ -140,7 +140,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 3.使用本服务的要求 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               3. 使用本服务的要求
             </h5>
@@ -157,7 +157,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 4.服务内容 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               4. 服务内容
             </h5>
@@ -202,7 +202,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 5.用户使用规则 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               5. 用户使用规则
             </h5>
@@ -234,7 +234,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 6.免责声明 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               6. 免责声明
             </h5>
@@ -261,7 +261,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 7.用户禁止性规定 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               7. 用户禁止性规定
             </h5>
@@ -287,7 +287,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 8.对本协议的修订 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               8. 对本协议的修订
             </h5>
@@ -303,7 +303,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 9.适用法律及管辖 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               9. 适用法律及管辖
             </h5>
@@ -323,7 +323,7 @@ export default function UserAgreement() {
           </div>
 
           {/* 10.联系我们 */}
-          <div className="flex w-5xl items-start justify-start flex-col mt-4">
+          <div className="flex w-5xl sm:w-3xl items-start justify-start flex-col mt-4">
             <h5 className=" mt-4 text-xl font-bold /*bg-amber-200">
               10. 联系我们
             </h5>
