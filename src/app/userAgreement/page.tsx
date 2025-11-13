@@ -3,7 +3,7 @@ export default function UserAgreement() {
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-6">
         <main className="flex flex-col items-center justify-start w-full">
-          {/* 图标和标题部分保持不变 */}
+          {/* 图标 */}
           <div className="flex w-full items-center justify-center mb-4">
             <svg
               width="36.000000"
@@ -12,7 +12,6 @@ export default function UserAgreement() {
               fill="none"
               color="#A8D6D2"
             >
-              {/* 保持您原有的SVG代码不变 */}
               <defs>
                 <clipPath id="clip40_7009">
                   <rect
@@ -102,7 +101,7 @@ export default function UserAgreement() {
             <span className="font-medium">更新日期：2025年11月12日</span>
           </p>
 
-          {/* 1-5部分保持不变 */}
+          {/* 1. 关于我们 */}
           <div className="flex w-full items-start justify-start flex-col mt-6 sm:mt-8">
             <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               1. 关于我们
@@ -116,6 +115,7 @@ export default function UserAgreement() {
             </p>
           </div>
 
+          {/* 2. 协议范围、目的及确认方式 */}
           <div className="flex w-full items-start justify-start flex-col mt-6">
             <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               2. 协议范围、目的及确认方式
@@ -138,6 +138,7 @@ export default function UserAgreement() {
             </p>
           </div>
 
+          {/* 3. 使用本服务的要求 */}
           <div className="flex w-full items-start justify-start flex-col mt-6">
             <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               3. 使用本服务的要求
@@ -156,6 +157,7 @@ export default function UserAgreement() {
             </p>
           </div>
 
+          {/* 4. 服务内容 */}
           <div className="flex w-full items-start justify-start flex-col mt-6">
             <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               4. 服务内容
@@ -194,6 +196,7 @@ export default function UserAgreement() {
             </p>
           </div>
 
+          {/* 5. 用户使用规则 */}
           <div className="flex w-full items-start justify-start flex-col mt-6">
             <h5 className="text-lg sm:text-xl font-bold text-gray-900">
               5. 用户使用规则
@@ -339,6 +342,13 @@ export default function UserAgreement() {
               <br />
               <br />
               邮箱地址：jinnywang@petalmail.com
+            </p>
+          </div>
+
+          {/* 生效日期 */}
+          <div className="flex w-full items-end justify-start flex-col mt-12">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 leading-relaxed">
+              生效日期：2025.11.12
             </p>
           </div>
         </main>
