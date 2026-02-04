@@ -22,18 +22,12 @@ export const articleList = [
   },
   {
     id: 4,
-    title: "鸿蒙开发 —— DevEco Studio 的下载与安装",
-    date: "10月 26，2025",
+    title:
+      "顺 “瓜” 摸 “藤”（鸿蒙开发）—— 1. 应用的二次退出 / 防误触退出（小📕案例版）",
+    date: "2月 4，2026",
     content:
-      "这是一篇关于鸿蒙开发 —— 下载 DevEco Studio 的文章, 你可以在该文章中学习到如何下载和安装 DevEco Studio, 从而开始鸿蒙开发。",
+      "这是一篇关于 顺 “瓜” 摸 “藤” —— 应用的二次退出（防误触退出） 的文章, 你可以在该文章中学习到如何防止误触退出应用, 从而提高应用的稳定性。",
   },
-  // {
-  //   id: 5,
-  //   title: "VMware Workstation Pro 的下载与安装",
-  //   date: "11月 2，2025",
-  //   content:
-  //     "这是一篇关于 VMware Workstation Pro 的下载与安装的文章, 你可以在该文章中学习到如何下载和安装 VMware Workstation Pro, 从而开始虚拟机开发。",
-  // },
   // {
   //   id: 6,
   //   title: "鸿蒙开发 —— 项目创建与运行",
@@ -41,4 +35,17 @@ export const articleList = [
   //   content:
   //     "这是一篇关于鸿蒙开发 —— 项目创建与运行的文章, 你可以在该文章中学习到如何创建和运行鸿蒙项目, 从而开始鸿蒙开发。",
   // },
+];
+
+export const exitVideoList = [
+  // {
+  //   id: 1,
+  //   title: "哔哩哔哩",
+  //   src: "/exit-bilibili.mp4",
+  // },
+  {
+    id: 2,
+    title: "小红书",
+    src: "/exit-redbook.mp4",
+  },
 ];

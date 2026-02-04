@@ -1,7 +1,19 @@
 "use client";
-import { articleList } from "@/app/model/articleModel";
+import { articleList, exitVideoList } from "@/app/model/articleModel";
 import { useRouter } from "next/navigation";
 import { use } from "react";
+import CodeBlock from "@/app/components/CodeBlock";
+import {
+  bilibiliBackV1Base,
+  bilibiliBackV1High,
+  bilibiliBackV2Base,
+  bilibiliBackV2High,
+  exitViewModelV1,
+  exitViewModelV2,
+} from "@/app/viewmodel/codeViewModel";
+import VideoPlayer from "@/app/components/VideoPlayer";
+import { Video } from "lucide-react";
+
 // 配置 Git 命令
 const configGit = [
   { title: "# 进入你的项目文件", code: "cd path/to/your/react-project" },
@@ -1080,7 +1092,377 @@ export default function ArticleItem({
             </>
           )}
 
-          {articleId === 4 && <></>}
+          {articleId === 4 && (
+            <>
+              <div className="mt-10 space-y-8">
+                {/* 1. 引子 */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    1. 引子
+                  </h2>
+
+                  {/* 引子内容 */}
+                  <p className="leading-8">
+                    我们在开发时，会有突发奇想或者看到好的设计，希望能够模仿，但是会有处于毫无头绪的时候，不知道该如何下手，这就相当于一个考试，给你一个题目叫你作答，但不同于校园考试，他并不是在给定你范围并且复习的情况下进行作答。它是未知的，并不是顺藤摸瓜，总会遇到你所不清楚的内容，我希望能够通过案例顺瓜摸藤进行学习，通过“瓜”来推出是什么“藤”。{" "}
+                  </p>
+                </div>
+
+                {/* 2. 注 */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    2. 注
+                  </h2>
+
+                  {/* 注内容 */}
+                  <p className="leading-8">
+                    这些案例都是现有APP的形式进行推论，因本人能力有限，可能不会是最优方案，如果您有更优方案，欢迎指出并讨论。
+                    <br />
+                    该系列的代码全部开源
+                    <br />
+                    <span className="rounded-full font-extrabold text-zinc-700 mr-2">
+                      ·
+                    </span>
+                    在github
+                    <br />
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800"
+                      href="https://github.com/JinnyWang-Space/HMOS_Space"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://github.com/JinnyWang-Space/HMOS_Space
+                    </a>
+                    <br />
+                    或者gitee
+                    <br />
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800 mr-2"
+                      href="https://gitee.com/jinnywang/HMOS_Space"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://gitee.com/jinnywang/HMOS_Space
+                    </a>
+                    <br />
+                    上均可查看，下载使用
+                  </p>
+                </div>
+
+                {/* 3.案例 */}
+                <div className="space-y-4">
+                  {/* 标题 */}
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    3. 案例
+                  </h2>
+
+                  {/* 案例内容 */}
+                  <p className="leading-8">应用的二次退出（防误触退出）</p>
+
+                  {/* 视频+分析 */}
+                  <div className="flex flex-row justify-around">
+                    <VideoPlayer
+                      src="/exit-redbook.mp4"
+                      videoClassName="w-72 h-159"
+                      title="小📕"
+                      autoPlay={true}
+                      muted={true}
+                      loop={true}
+                    />
+                    {/* 案例分析 */}
+                    <div className="w-72 flex flex-col justify-center space-y-4">
+                      <p className="text-xl font-bold">案例分析</p>
+                      <p className="leading-8">
+                        应用第一次退出后弹出提示框，在提示框消失前退出，则直接退出app，
+                        反之，则重回第一次退出过程。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. 流程图 */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    4. 流程图
+                  </h2>
+
+                  <div className="flex flex-row justify-center">
+                    <img
+                      className="w-140 h-220 rounded-lg align-center"
+                      src="/exit.jpg"
+                      alt="exit-flowchart"
+                    />
+                  </div>
+                </div>
+
+                {/* 5. 知识点 */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    5. 知识点
+                  </h2>
+
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    5.1 Timer（定时器）
+                  </h2>
+                  <p className="leading-8">
+                    <span className="rounded-full font-extrabold text-zinc-700 ml-4 mr-2">
+                      ·
+                    </span>
+                    setTimeout （设置定时器）
+                    <br />
+                    <span className="ml-8">文档链接：</span>
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800 ml-2 mr-2"
+                      href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#settimeout"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#settimeout
+                    </a>
+                    <br />
+                    <span className="rounded-full font-extrabold text-zinc-700 ml-4 mr-2">
+                      ·
+                    </span>
+                    clearTimeout （取消定时器）
+                    <br />
+                    <span className="ml-8">文档链接：</span>
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800 ml-2 mr-2"
+                      href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#cleartimeout"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-timer#cleartimeout
+                    </a>
+                  </p>
+
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    5.2 自定义组件生命周期（onBackPress，aboutToDisappear）
+                  </h2>
+                  <p className="leading-8">
+                    <span className="rounded-full font-extrabold text-zinc-700 ml-4 mr-2">
+                      ·
+                    </span>
+                    onBackPress（返回逻辑）
+                    <br />
+                    <span className="ml-8">
+                      注：在@Entry装饰器下的页面才能生效
+                    </span>
+                    <br />
+                    <span className="ml-8">文档链接：</span>
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800 ml-2 mr-2"
+                      href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onbackpress"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onbackpress
+                    </a>
+                    <br />
+                    <span className="rounded-full font-extrabold text-zinc-700 ml-4 mr-2">
+                      ·
+                    </span>
+                    aboutToDisappear（组件消失生命周期）
+                    <br />
+                    <span className="ml-8">文档链接：</span>
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800 ml-2 mr-2"
+                      href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear
+                    </a>
+                  </p>
+
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    5.3 @ohos.promptAction (弹窗)
+                  </h2>
+                  <p className="leading-8">
+                    文档链接：
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800 ml-2 mr-2"
+                      href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#promptactionopentoast18"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#promptactionopentoast18
+                    </a>
+                  </p>
+                </div>
+
+                {/* 6.代码（基础） */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    6. 代码（基础）
+                  </h2>
+
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    6.1 状态管理V1版
+                  </h2>
+
+                  {/* 代码 */}
+                  <CodeBlock language="typescript" title="状态管理V1版">
+                    {bilibiliBackV1Base}
+                  </CodeBlock>
+
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    6.2 状态管理V2版
+                  </h2>
+
+                  {/* 代码 */}
+                  <CodeBlock language="typescript" title="状态管理V2版">
+                    {bilibiliBackV2Base}
+                  </CodeBlock>
+                </div>
+
+                {/* 7. 代码（进阶） */}
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    7. 代码（进阶）
+                  </h2>
+                  <p className="leading-8">
+                    采用 <span className="font-bold">MVVM模式</span> 思想，将其
+                    <span className="font-bold"> 数据 </span>与
+                    <span className="font-bold"> 视图 </span>
+                    独立出来，降低耦合，在ViewModel层
+                    <span className="font-bold"> 管理UI状态与业务逻辑 </span>
+                    ，鸿蒙的装饰器对于这种思想有着天然的优势。
+                  </p>
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    注
+                  </h2>
+                  <p className="leading-8 pl-4">
+                    <span className="rounded-full font-extrabold text-zinc-950 mr-2">
+                      ·
+                    </span>
+                    对于刚入门，进阶模式可能会比较抽象，可以先通过
+                    <span className="font-bold"> 注 </span>
+                    里面的提示进行知识补充或者暂时只了解基础版代码，但
+                    <span className="font-bold"> 注 </span>
+                    里面的内容最终是一定要掌握的
+                    <br />
+                    <span className="rounded-full font-extrabold text-zinc-950 mr-2">
+                      ·
+                    </span>
+                    如果为入门，需先了解什么是
+                    <span className="font-bold"> MVVM模式</span>
+                    <br />
+                    <span className="rounded-full font-extrabold text-zinc-950 mr-2">
+                      ·
+                    </span>
+                    如果使用状态管理<span className="font-bold"> V1 </span>版本
+                    ，需先了解什么是
+                    <span className="font-bold"> @Observed </span>与
+                    <span className="font-bold"> @Track </span>
+                    <br />
+                    <span className="rounded-full font-extrabold text-zinc-950 mr-2">
+                      ·
+                    </span>
+                    如果使用状态管理
+                    <span className="font-bold"> V2 </span>版本 ，需先了解什么是
+                    <span className="font-bold"> @ObservedV2 </span>与
+                    <span className="font-bold"> @Trace </span>
+                    <br />
+                    <span className="rounded-full font-extrabold text-zinc-950 mr-2">
+                      ·
+                    </span>
+                    <span className="font-bold">
+                      最重要的，尽量不要状态管理V1与V2版混用，即视图模型层使用的状态管理与视图层使用的状态管理不一致
+                    </span>
+                    ，这里我更倾向于使用V2版本，因为它相比于V1版，更加强大，使用更加方便，对于想了解V1与V2具体差别的查看这篇文档：
+                    <a
+                      className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800 ml-2 mr-2"
+                      href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-update-difference"
+                      // 实现新窗口打开
+                      target="_blank"
+                    >
+                      https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-update-difference
+                    </a>
+                  </p>
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    7.1 封装为ViewModel层（状态管理V1版）
+                  </h2>
+
+                  <p className="leading-8">
+                    ExitViewModel（退出视图模型），管理第一次退出，最终退出，销毁定时器。
+                  </p>
+                  {/* 代码 */}
+                  <CodeBlock
+                    language="typescript"
+                    title="封装为ViewModel层（状态管理V1版）"
+                  >
+                    {exitViewModelV1}
+                  </CodeBlock>
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    7.2 封装为ViewModel层（状态管理V2版）
+                  </h2>
+                  {/* 代码 */}
+                  <CodeBlock
+                    language="typescript"
+                    title="封装为ViewModel层（状态管理V2版）"
+                  >
+                    {exitViewModelV2}
+                  </CodeBlock>
+                  <h2 className="text-xl font-bold tracking-tight text-zinc-800">
+                    视图层的引用
+                  </h2>
+                  <h2 className="text-lg font-bold tracking-tight text-zinc-800 ml-6">
+                    7.2.1 状态管理V1版
+                  </h2>
+                  {/* 代码 */}
+                  <CodeBlock language="typescript" title="（状态管理V1版）">
+                    {bilibiliBackV1High}
+                  </CodeBlock>
+                  <h2 className="text-lg font-bold tracking-tight text-zinc-800 ml-6">
+                    7.2.2 状态管理V2版
+                  </h2>
+                  {/* 代码 */}
+                  <CodeBlock language="typescript" title="（状态管理V2版）">
+                    {bilibiliBackV2High}
+                  </CodeBlock>
+                </div>
+
+                {/* 8. 实际效果 */}
+                <div className="space-y-4">
+                  {/* 标题 */}
+                  <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
+                    8. 实现效果
+                  </h2>
+
+                  <div className="flex flex-row justify-around">
+                    <VideoPlayer
+                      src="/exit-ex.mp4"
+                      videoClassName="w-72 h-159"
+                      title="实现效果"
+                      autoPlay={true}
+                      muted={true}
+                      loop={true}
+                    />
+                    {/* 实现效果 */}
+                    <div className="w-72 flex flex-col justify-center space-y-4">
+                      <p className="text-xl font-bold">实现效果</p>
+                      <p className="leading-8">
+                        1.
+                        应用第一次退出后弹出提示框，在提示框消失前退出，再次滑动则直接退出app。
+                        <br />
+                        2. 在提示框消失之后，再次退出，则重回第一次退出过程。
+                        <br />
+                        3.
+                        应用退出后，提示框消失有一定时间，在消失前的间隔中（promptToast默认显示是2S），再次点击APP，即使在提示框未消失，也是会进行第一次退出过程。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 恭喜 */}
+              <div className="mt-32 flex w-full justify-center">
+                <p className="text-4xl font-bold text-center">
+                  🎉 恭喜你！完成鸿蒙开发案例中的应用的二次退出
+                </p>
+              </div>
+            </>
+          )}
         </article>
       </div>
     </main>

@@ -155,10 +155,11 @@ export default function VersionView() {
           <section className="md:border-l md:border-zinc-300 md:pl-6 md:dark:border-zinc-700/40">
             <div className="grid max-w-3xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
               <h2 className="text-sm font-sm text-zinc-400">
-                [ 1.1.3 ] - 10月 26，2025
+                [ 1.1.3 ] - 2月 4，2026
               </h2>
               <div className="col-span-3">
                 <ul role="list" className="space-y-16">
+                  {/* 内容更新 */}
                   <li className="group relative flex flex-col items-start">
                     <h3 className="text-base font-semibold tracking-tight text-zinc-800">
                       📝 内容更新
@@ -166,7 +167,8 @@ export default function VersionView() {
                     <p className="relative z-10 mt-2 text-sm text-zinc-600 leading-8">
                       · 发布第四篇文章：
                       <span className="font-semibold">
-                        《 鸿蒙开发 —— DevEco Studio 的下载与安装 》
+                        《 顺 “瓜” 摸 “藤”（鸿蒙开发）—— 1. 应用的二次退出 /
+                        防误触退出（小📕案例版） 》
                       </span>
                       <br />· 文章导航：
                       <a
@@ -178,36 +180,15 @@ export default function VersionView() {
                       <br />
                     </p>
                   </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* 版本 1.1.4 */}
-          <section className="md:border-l md:border-zinc-300 md:pl-6 md:dark:border-zinc-700/40">
-            <div className="grid max-w-3xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
-              <h2 className="text-sm font-sm text-zinc-400">
-                [ 1.1.4 ] - 11月 2，2025
-              </h2>
-              <div className="col-span-3">
-                <ul role="list" className="space-y-16">
+                  {/* 优化 */}
                   <li className="group relative flex flex-col items-start">
                     <h3 className="text-base font-semibold tracking-tight text-zinc-800">
-                      📝 内容更新
+                      💄 优化
                     </h3>
                     <p className="relative z-10 mt-2 text-sm text-zinc-600 leading-8">
-                      · 发布第四篇文章：
-                      <span className="font-semibold">
-                        《 VMware Workstation Pro 的下载与安装 》
-                      </span>
-                      <br />· 文章导航：
-                      <a
-                        href="https://www.jinnyspace.online/articles/articleItem/5"
-                        className="text-blue-500 hover:text-blue-800 hover:border-b hover:border-b-blue-800"
-                      >
-                        jinnyspace.online/articles/articleItem/5
-                      </a>
-                      <br />
+                      · 优化了代码块，
+                      增加了代码可复制，可折叠功能，增加了代码的可读性
+                      <br />· 改进了文章阅读体验，增加视频可观看
                     </p>
                   </li>
                 </ul>
