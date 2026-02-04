@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause, RefreshCw, AlertCircle } from "lucide-react";
+import { Play, Pause, RefreshCw } from "lucide-react";
 
 interface VideoPlayerProps {
   src: string;
@@ -31,6 +31,11 @@ export default function VideoPlayer({
   const [hasError, setHasError] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
 
+  // 用于跟踪组件是否已挂载
+  const isMountedRef = useRef(true);
+  // 用于跟踪是否正在尝试播放，避免竞态条件
+  const isPlayingAttemptRef = useRef(false);
+
   // 按钮颜色配置
   const buttonColor = {
     default: "#8E8B8C",
@@ -45,16 +50,36 @@ export default function VideoPlayer({
     try {
       if (isPlaying) {
         videoRef.current.pause();
+        setIsPlaying(false);
       } else {
-        videoRef.current.play().catch((error) => {
-          console.error("播放失败:", error);
-          setHasError(true);
-        });
+        // 设置标记，防止重复调用
+        if (!isPlayingAttemptRef.current) {
+          isPlayingAttemptRef.current = true;
+
+          videoRef.current
+            .play()
+            .then(() => {
+              if (isMountedRef.current) {
+                setIsPlaying(true);
+              }
+            })
+            .catch((error) => {
+              console.warn("播放失败:", error.name, error.message);
+              // 如果是中断错误，不视为真正的错误
+              if (error.name !== "AbortError" && isMountedRef.current) {
+                setHasError(true);
+              }
+            })
+            .finally(() => {
+              isPlayingAttemptRef.current = false;
+            });
+        }
       }
-      setIsPlaying(!isPlaying);
     } catch (error) {
-      console.error("播放控制错误:", error);
-      setHasError(true);
+      console.warn("播放控制错误:", error);
+      if (isMountedRef.current) {
+        setHasError(true);
+      }
     }
   };
 
@@ -62,94 +87,190 @@ export default function VideoPlayer({
   const retryLoad = () => {
     if (videoRef.current) {
       setHasError(false);
+      setIsLoaded(false);
       setRetryCount((prev) => prev + 1);
+
+      // 重置视频元素
       videoRef.current.load();
+    }
+  };
+
+  // 安全地尝试自动播放
+  const safeAutoPlay = () => {
+    if (!videoRef.current || !autoPlay || hasError) return;
+
+    if (!isPlayingAttemptRef.current) {
+      isPlayingAttemptRef.current = true;
+
+      videoRef.current
+        .play()
+        .then(() => {
+          if (isMountedRef.current) {
+            setIsPlaying(true);
+          }
+        })
+        .catch((error) => {
+          console.warn("自动播放失败:", error.name, error.message);
+          // 自动播放失败是正常的，不标记为错误
+          if (error.name === "NotAllowedError") {
+            console.info("自动播放被浏览器策略阻止，需要用户交互");
+          }
+        })
+        .finally(() => {
+          isPlayingAttemptRef.current = false;
+        });
     }
   };
 
   // 初始化视频加载
   useEffect(() => {
+    // 组件挂载时设置标记
+    isMountedRef.current = true;
+
     const video = videoRef.current;
     if (!video) return;
 
+    let playAttemptTimeout: NodeJS.Timeout;
+    let isWaitingForInteraction = false;
+
     const handleCanPlay = () => {
       console.log("视频可以播放");
-      setIsLoaded(true);
-      setHasError(false);
+      if (isMountedRef.current) {
+        setIsLoaded(true);
+        setHasError(false);
+      }
+    };
 
-      // 自动播放逻辑
-      if (autoPlay) {
-        const playPromise = video.play();
-
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              console.log("自动播放成功");
-              setIsPlaying(true);
-            })
-            .catch((error) => {
-              console.warn("自动播放被阻止:", error);
-              // 自动播放失败是正常的，不标记为错误
-              setIsPlaying(false);
-            });
-        }
+    const handleCanPlayThrough = () => {
+      console.log("视频可以流畅播放");
+      if (isMountedRef.current && autoPlay) {
+        // 延迟一下再尝试自动播放，确保视频完全准备好
+        playAttemptTimeout = setTimeout(() => {
+          safeAutoPlay();
+        }, 300);
       }
     };
 
     const handleError = (e: Event) => {
       console.error("视频加载错误:", e);
-      setHasError(true);
-      setIsLoaded(false);
+      if (isMountedRef.current) {
+        setHasError(true);
+        setIsLoaded(false);
+      }
     };
 
     const handlePlay = () => {
       console.log("视频开始播放");
-      setIsPlaying(true);
-      setHasError(false);
+      if (isMountedRef.current) {
+        setIsPlaying(true);
+        setHasError(false);
+        isWaitingForInteraction = false;
+      }
     };
 
     const handlePause = () => {
       console.log("视频暂停");
-      setIsPlaying(false);
+      if (isMountedRef.current) {
+        setIsPlaying(false);
+      }
     };
 
     const handleEnded = () => {
       console.log("视频播放结束");
-      if (loop && video) {
+      if (isMountedRef.current && loop && video) {
         video.currentTime = 0;
-        video.play().catch(console.error);
+
+        // 使用setTimeout避免立即调用play()导致的竞态条件
+        setTimeout(() => {
+          if (isMountedRef.current && !isPlayingAttemptRef.current) {
+            isPlayingAttemptRef.current = true;
+            video
+              .play()
+              .then(() => {
+                if (isMountedRef.current) {
+                  setIsPlaying(true);
+                }
+              })
+              .catch((error) => {
+                console.warn("循环播放失败:", error);
+              })
+              .finally(() => {
+                isPlayingAttemptRef.current = false;
+              });
+          }
+        }, 100);
       }
     };
 
     const handleLoadedMetadata = () => {
       console.log("视频元数据加载完成");
-      setIsLoaded(true);
+      if (isMountedRef.current) {
+        setIsLoaded(true);
+      }
     };
 
     // 添加所有事件监听器
     video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("canplaythrough", handleCanPlayThrough);
     video.addEventListener("error", handleError);
     video.addEventListener("play", handlePlay);
     video.addEventListener("pause", handlePause);
     video.addEventListener("ended", handleEnded);
     video.addEventListener("loadedmetadata", handleLoadedMetadata);
 
-    // 尝试加载视频
+    // 检查视频是否已经可以播放
     if (video.readyState >= 2) {
-      // 视频已经部分加载
+      // HAVE_CURRENT_DATA
       handleCanPlay();
+
+      if (video.readyState >= 3 && isMountedRef.current && autoPlay) {
+        // HAVE_FUTURE_DATA
+        playAttemptTimeout = setTimeout(() => {
+          safeAutoPlay();
+        }, 500);
+      }
     }
 
+    // 用户交互后尝试自动播放（如果需要）
+    const handleUserInteraction = () => {
+      if (isWaitingForInteraction && autoPlay && !isPlaying) {
+        safeAutoPlay();
+      }
+    };
+
+    // 添加用户交互监听
+    window.addEventListener("click", handleUserInteraction);
+    window.addEventListener("touchstart", handleUserInteraction);
+    window.addEventListener("keydown", handleUserInteraction);
+
+    // 清理函数
     return () => {
-      // 清理事件监听器
+      isMountedRef.current = false;
+      isPlayingAttemptRef.current = false;
+
+      if (playAttemptTimeout) {
+        clearTimeout(playAttemptTimeout);
+      }
+
+      // 移除事件监听器
       video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("canplaythrough", handleCanPlayThrough);
       video.removeEventListener("error", handleError);
       video.removeEventListener("play", handlePlay);
       video.removeEventListener("pause", handlePause);
       video.removeEventListener("ended", handleEnded);
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+
+      window.removeEventListener("click", handleUserInteraction);
+      window.removeEventListener("touchstart", handleUserInteraction);
+      window.removeEventListener("keydown", handleUserInteraction);
+
+      // 确保视频暂停
+      if (!video.paused) {
+        video.pause();
+      }
     };
-  }, [autoPlay, loop, retryCount]); // 当重试次数变化时重新初始化
+  }, [autoPlay, loop, retryCount]);
 
   // 处理键盘快捷键
   useEffect(() => {
@@ -186,7 +307,7 @@ export default function VideoPlayer({
 
         {/* 播放状态指示器 */}
         <div
-          className={`px-3 py-1 rounded-full text-sm font-medium ${isPlaying ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"}`}
+          className={`px-3 py-1 rounded-full text-sm font-medium ${isPlaying ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"} ${hasError ? "!bg-red-100 !text-red-700" : ""}`}
         >
           {hasError ? "加载失败" : isPlaying ? "播放中" : "已暂停"}
         </div>
@@ -203,10 +324,16 @@ export default function VideoPlayer({
           muted={muted}
           loop={loop}
           playsInline
-          preload="auto" // 改为 auto 以提高加载速度
+          preload="metadata"
           controls={false}
           disablePictureInPicture
           disableRemotePlayback
+          onError={() => {
+            if (isMountedRef.current) {
+              setHasError(true);
+              setIsLoaded(false);
+            }
+          }}
         >
           {/* 备用内容 */}
           <p>您的浏览器不支持 HTML5 视频。</p>
@@ -225,17 +352,16 @@ export default function VideoPlayer({
         {/* 错误状态 */}
         {hasError && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-red-900/80 p-4">
-            <AlertCircle className="w-12 h-12 text-red-300 mb-3" />
-            <p className="text-red-100 text-center mb-4">
-              视频加载失败
-              <br />
-              <span className="text-sm">请检查网络连接或视频文件</span>
-            </p>
+            <div className="text-red-100 text-center mb-4">
+              <p className="font-medium mb-1">视频加载失败</p>
+              <p className="text-sm">请检查网络连接或视频文件</p>
+              <p className="text-xs mt-2">已尝试 {retryCount} 次</p>
+            </div>
             <button
               onClick={retryLoad}
               className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
             >
-              重试加载 (已尝试 {retryCount} 次)
+              重试加载
             </button>
           </div>
         )}
@@ -255,9 +381,7 @@ export default function VideoPlayer({
             }}
             onMouseEnter={(e) => {
               if (!hasError) {
-                e.currentTarget.style.backgroundColor = isPlaying
-                  ? buttonColor.hover
-                  : buttonColor.hover;
+                e.currentTarget.style.backgroundColor = buttonColor.hover;
               }
             }}
             onMouseLeave={(e) => {
@@ -274,9 +398,7 @@ export default function VideoPlayer({
                   : "播放 (空格键)"
             }
           >
-            {hasError ? (
-              <AlertCircle className="w-6 h-6 text-white" />
-            ) : isPlaying ? (
+            {isPlaying ? (
               <Pause className="w-6 h-6 text-white" />
             ) : (
               <Play className="w-6 h-6 text-white ml-1" />
