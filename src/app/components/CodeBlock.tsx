@@ -211,13 +211,14 @@ export default function CodeBlock({
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
                 <span className="font-medium truncate ml-1" title={title}>
-                  {title}
+                  {/* {title} */}
                 </span>
               </div>
             )}
             {language && showLanguageTag && (
-              <span className="flex-shrink-0 px-2.5 py-1 bg-gray-700/50 backdrop-blur-sm rounded-md text-xs font-medium border border-gray-600/50">
-                {language.toUpperCase()}
+              <span className="flex-shrink-0 px-2.5 py-1 bg-gray-700/50 backdrop-blur-sm rounded-md text-md font-bold border border-gray-600/50">
+                {/* {language.toUpperCase()} */}
+                ArkTS
               </span>
             )}
           </div>
