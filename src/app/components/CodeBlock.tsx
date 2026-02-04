@@ -73,15 +73,34 @@ interface CodeBlockProps {
 function hasPropsChildren(
   element: unknown,
 ): element is { props: { children: string } } {
-  return (
-    typeof element === "object" &&
-    element !== null &&
-    "props" in element &&
-    typeof (element as any).props === "object" &&
-    (element as any).props !== null &&
-    "children" in (element as any).props &&
-    typeof (element as any).props.children === "string"
-  );
+  // 先检查是否是对象且不为 null
+  if (typeof element !== "object" || element === null) {
+    return false;
+  }
+
+  const elementObj = element as Record<string, unknown>;
+
+  // 检查是否有 props 属性
+  if (!("props" in elementObj)) {
+    return false;
+  }
+
+  const props = elementObj.props;
+
+  // 检查 props 是否是对象且不为 null
+  if (typeof props !== "object" || props === null) {
+    return false;
+  }
+
+  const propsObj = props as Record<string, unknown>;
+
+  // 检查是否有 children 属性
+  if (!("children" in propsObj)) {
+    return false;
+  }
+
+  // 检查 children 是否是字符串
+  return typeof propsObj.children === "string";
 }
 
 // 类型守卫函数，检查是否是有效的 React 元素
@@ -138,7 +157,7 @@ export default function CodeBlock({
   const [shouldShowToggle, setShouldShowToggle] = useState(false);
   const codeContainerRef = useRef<HTMLDivElement>(null);
 
-  // 安全地获取代码字符串，避免使用 any 类型
+  // 安全地获取代码字符串
   const codeString = useMemo(() => {
     return getCodeString(children);
   }, [children]);
@@ -366,7 +385,7 @@ export default function CodeBlock({
   );
 }
 
-// 为了方便使用，可以创建几个预设组件
+// 预设组件
 export const CodeBlockCollapsible = (
   props: Omit<CodeBlockProps, "showExpandCollapse" | "defaultExpanded">,
 ) => <CodeBlock showExpandCollapse={true} defaultExpanded={false} {...props} />;
