@@ -1,7 +1,14 @@
 // components/CodeBlock/index.tsx
 "use client";
 
-import { ReactNode, useState, useMemo, useEffect, useRef } from "react";
+import {
+  ReactNode,
+  useState,
+  useMemo,
+  useEffect,
+  useRef,
+  isValidElement,
+} from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import {
@@ -11,6 +18,7 @@ import {
   ChevronUpIcon,
 } from "lucide-react";
 
+// 类型定义
 interface CodeBlockProps {
   /** 代码内容，可以是字符串或 ReactNode */
   children: string | ReactNode;
@@ -61,6 +69,51 @@ interface CodeBlockProps {
   collapseText?: string;
 }
 
+// 类型守卫函数，检查元素是否有 props.children
+function hasPropsChildren(
+  element: unknown,
+): element is { props: { children: string } } {
+  return (
+    typeof element === "object" &&
+    element !== null &&
+    "props" in element &&
+    typeof (element as any).props === "object" &&
+    (element as any).props !== null &&
+    "children" in (element as any).props &&
+    typeof (element as any).props.children === "string"
+  );
+}
+
+// 类型守卫函数，检查是否是有效的 React 元素
+function isValidReactElementWithChildren(
+  element: unknown,
+): element is React.ReactElement {
+  return isValidElement(element);
+}
+
+// 辅助函数：安全地获取代码字符串
+function getCodeString(children: string | ReactNode): string {
+  if (typeof children === "string") {
+    return children;
+  }
+
+  if (isValidReactElementWithChildren(children) && hasPropsChildren(children)) {
+    return children.props.children;
+  }
+
+  // 如果是数组，尝试连接所有字符串子元素
+  if (Array.isArray(children)) {
+    return children
+      .map((child) => getCodeString(child))
+      .filter(Boolean)
+      .join("\n");
+  }
+
+  // 对于其他情况，尝试转换为字符串
+  console.warn("无法从 children 中提取代码字符串，使用默认值");
+  return "";
+}
+
 export default function CodeBlock({
   children,
   language = "typescript",
@@ -68,11 +121,10 @@ export default function CodeBlock({
   showLineNumbers = true,
   className = "",
   defaultExpanded = false,
-  collapsedLines = 10,
+  collapsedLines = 15,
   showExpandCollapse = true,
   maxHeight = "auto",
   headerBg = "from-gray-800 to-gray-900",
-  // headerBg = "bg-black-800",
   codeBg = "zinc-950",
   showLanguageTag = true,
   copyText = "复制",
@@ -86,11 +138,10 @@ export default function CodeBlock({
   const [shouldShowToggle, setShouldShowToggle] = useState(false);
   const codeContainerRef = useRef<HTMLDivElement>(null);
 
-  // 确保children是字符串
-  const codeString =
-    typeof children === "string"
-      ? children
-      : (children as any)?.props?.children || "";
+  // 安全地获取代码字符串，避免使用 any 类型
+  const codeString = useMemo(() => {
+    return getCodeString(children);
+  }, [children]);
 
   // 计算代码行数
   const totalLines = useMemo(() => {
@@ -147,7 +198,7 @@ export default function CodeBlock({
       {/* 标题栏 */}
       {(title || language) && (
         <div
-          className={`flex justify-between items-center /*bg-gradient-to-r ${headerBg}*/ bg-black px-4 py-3 text-gray-200 text-sm border-b border-gray-700`}
+          className={`flex justify-between items-center /*bg-gradient-to-r ${headerBg}*/ bg-zinc-950 px-4 py-3 text-gray-200 text-sm border-b border-gray-700`}
         >
           {/* 左侧：标题和语言标签 */}
           <div className="flex items-center gap-3 overflow-hidden">
@@ -160,15 +211,13 @@ export default function CodeBlock({
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
                 <span className="font-medium truncate ml-1" title={title}>
-                  {/* {title} */}
-                  {/* ArkTS */}
+                  {title}
                 </span>
               </div>
             )}
             {language && showLanguageTag && (
-              <span className="flex-shrink-0 px-2.5 py-1 bg-gray-700/50 backdrop-blur-sm rounded-md text-md font-bold border border-gray-600/50">
-                {/* {language.toUpperCase()} */}
-                ArkTS
+              <span className="flex-shrink-0 px-2.5 py-1 bg-gray-700/50 backdrop-blur-sm rounded-md text-xs font-medium border border-gray-600/50">
+                {language.toUpperCase()}
               </span>
             )}
           </div>
@@ -317,19 +366,24 @@ export default function CodeBlock({
 }
 
 // 为了方便使用，可以创建几个预设组件
-export const CodeBlockCollapsible = (props: CodeBlockProps) => (
-  <CodeBlock showExpandCollapse={true} defaultExpanded={false} {...props} />
-);
+export const CodeBlockCollapsible = (
+  props: Omit<CodeBlockProps, "showExpandCollapse" | "defaultExpanded">,
+) => <CodeBlock showExpandCollapse={true} defaultExpanded={false} {...props} />;
 
-export const CodeBlockExpanded = (props: CodeBlockProps) => (
-  <CodeBlock showExpandCollapse={true} defaultExpanded={true} {...props} />
-);
+export const CodeBlockExpanded = (
+  props: Omit<CodeBlockProps, "showExpandCollapse" | "defaultExpanded">,
+) => <CodeBlock showExpandCollapse={true} defaultExpanded={true} {...props} />;
 
-export const CodeBlockSimple = (props: CodeBlockProps) => (
-  <CodeBlock showExpandCollapse={false} {...props} />
-);
+export const CodeBlockSimple = (
+  props: Omit<CodeBlockProps, "showExpandCollapse">,
+) => <CodeBlock showExpandCollapse={false} {...props} />;
 
-export const CodeBlockCompact = (props: CodeBlockProps) => (
+export const CodeBlockCompact = (
+  props: Omit<
+    CodeBlockProps,
+    "showExpandCollapse" | "defaultExpanded" | "collapsedLines" | "className"
+  >,
+) => (
   <CodeBlock
     showExpandCollapse={true}
     defaultExpanded={false}
@@ -338,3 +392,6 @@ export const CodeBlockCompact = (props: CodeBlockProps) => (
     {...props}
   />
 );
+
+// 类型导出
+export type { CodeBlockProps };
