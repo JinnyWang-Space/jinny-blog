@@ -1107,14 +1107,6 @@ export default function ArticleItem({
                   </p>
                 </div>
 
-                <video
-                  className="w-72 h-159 rounded-xl"
-                  src="/exit-redbook.mp4"
-                  autoPlay
-                  loop
-                  controls
-                ></video>
-
                 {/* 2. 注 */}
                 <div className="space-y-4">
                   <h2 className="text-2xl font-bold tracking-tight text-zinc-800">
